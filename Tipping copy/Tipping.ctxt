@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Tipping()
+comment0.text=\n\ This\ will\ be\ the\ constructer\ of\ the\ class.\ \n
+comment1.params=
+comment1.target=void\ Weekresult()
+comment1.text=\n\ Weekresult\ will\ make\ the\ result\ of\ the\ week\ and\ will\ put\ it\ out\ randomly.\ \n
+comment2.params=
+comment2.target=char[]\ getWeekresult()
+comment2.text=\n\ This\ code\ will\ return\ the\ Array\ that\ we\ earlier\ made.\ \n
+comment3.params=UkensRekke
+comment3.target=void\ print(char[])
+comment3.text=\n\ This\ code\ will\ print\ out\ the\ Array\ we\ created\ also\ known\ as\ the\ all\ the\ result\ of\ the\ week.\ \n
+comment4.params=
+comment4.target=char[]\ Register()
+comment4.text=\n\ In\ this\ code\ we\ created\ register\ which\ allows\ the\ user\ to\ input\ their\ bet\ on\ the\ weekresult.\ \n
+comment5.params=UkensRekke\ DinKupong
+comment5.target=int\ Check(char[],\ char[])
+comment5.text=\n\ \ This\ code\ will\ allow\ us\ to\ check\ our\ bet\ and\ the\ weekresult\ for\ similarity\n
+numComments=6

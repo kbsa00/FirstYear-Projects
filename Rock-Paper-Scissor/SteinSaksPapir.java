@@ -1,10 +1,10 @@
 import java.util.Random;
 import java.util.Scanner;
 /**
- * Write a description of class SteinSaksPapir here.
+ * My own Rock-Papir-Scissor game that where you play against the Computer :)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Khalid) 
+ * @version (0.1)
  */
 public class SteinSaksPapir
 {

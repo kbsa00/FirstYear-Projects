@@ -1,9 +1,9 @@
 import java.util.Scanner; 
 /**
- * Write a description of class Computer here.
+ * Just a fun project that I created where you engage a chat with the computer :) 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Khalid) 
+ * @version (0.1)
  */
 public class Computer
 {

@@ -130,11 +130,5 @@ public class Kalkulator extends JFrame implements ActionListener
         {
            System.exit(0);
         }
-        
-    
-    
-    
-    
-    
     }
 }

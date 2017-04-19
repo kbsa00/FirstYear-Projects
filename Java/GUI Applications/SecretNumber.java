@@ -67,7 +67,7 @@ public class SecretNumber extends JFrame implements ActionListener
     {
        Object click = e.getSource();
        Random rnd = new Random();
-       int i = rnd.nextInt(b1.size());
+       
     }
     
 }

@@ -41,6 +41,7 @@ public class Kalkulator extends JFrame implements ActionListener
         
         JLabel result = new JLabel("Result");
         box3 = new JTextField(sum);
+        box3.setEditable(false);
         panelcenter.add(result);
         panelcenter.add(box3);
         

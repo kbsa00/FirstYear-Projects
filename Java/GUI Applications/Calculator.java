@@ -105,13 +105,16 @@ public class Calculator extends JFrame implements ActionListener
     
     public void actionPerformed(ActionEvent e)
     {
-        String click = e.getActionCommand();
-        switch(click)
-        {
+        Object click = e.getSource();
             
-        
-        
+        if(click == b1)
+        {
+    
+            
+            
         }
+       
+    
     
     }
 }

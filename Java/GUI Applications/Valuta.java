@@ -1,4 +1,3 @@
-
 import javax.swing.*; 
 import java.awt.event.*; 
 import java.awt.*;
@@ -36,6 +35,7 @@ public class Valuta extends JFrame implements ActionListener
         JPanel panelnorth = new JPanel(new GridLayout(1,1)); 
         JPanel panelcenter = new JPanel(new GridLayout(2,2)); 
         JPanel panelsouth = new JPanel(new GridLayout(1,3));
+        
         //panelcenter.setLayout(new GridLayout(3,1,-12,-12));
         //panelsouth.setLayout(new GridLayout(1,7,-12,-12));
         
@@ -45,7 +45,8 @@ public class Valuta extends JFrame implements ActionListener
         panelnorth.add(box1); 
         
         other = new JLabel("Other"); 
-        box2 = new JTextField(); 
+        box2 = new JTextField();
+        box2.setEditable(false);
         panelnorth.add(other); 
         panelnorth.add(box2); 
         add(panelnorth, BorderLayout.NORTH); 

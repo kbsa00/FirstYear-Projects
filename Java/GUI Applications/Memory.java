@@ -33,15 +33,15 @@ public class Memory extends JFrame implements ActionListener
             buttons[i].setForeground(Color.WHITE);
             buttons[i].addActionListener(this);
             panelcenter.add(buttons[i]);
-            
-            
         }
         
         
         for(int i = 0; i < 18; i++)
         {
             buttons1[i] = new JButton(String.valueOf(i));
+            buttons1[i].setBackground(Color.WHITE);
             buttons1[i].setForeground(Color.WHITE);
+            
             buttons1[i].addActionListener(this);
             panelcenter.add(buttons1[i]);
         
@@ -73,12 +73,13 @@ public class Memory extends JFrame implements ActionListener
           {
               buttons1[0].setForeground(Color.BLACK);
           }
-      
+   
       }
+    
       else{
           buttons[0].setForeground(Color.WHITE); buttons1[0].setForeground(Color.WHITE);
         }
-      
+       
       
       
      

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=rows\ cols
+comment0.target=Memoryy(int,\ int)
+comment0.text=\n\ Setup\ GUI\ and\ start\ game\n
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=
+comment3.target=void\ initialize()
+comment3.text=\n\ Prepares\ for\ a\ new\ round\ by\ randomizing\ numbers\ and\ resetting\ buttons\n
+comment4.params=button
+comment4.target=void\ resetButton(javax.swing.JButton)
+comment5.params=event
+comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment5.text=\n\ Handle\ button-clicks\ and\ check\ if\ the\ last\ two\ locations\ have\ equal\n\ numbers\n
+numComments=6

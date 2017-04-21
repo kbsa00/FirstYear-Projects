@@ -1,6 +1,7 @@
 import javax.swing.*; 
 import java.awt.event.*; 
 import java.awt.*;
+import static javax.swing.JOptionPane.*;
 /**
  * Write a description of class Valuta here.
  * 
@@ -9,24 +10,16 @@ import java.awt.*;
  */
 public class Valuta extends JFrame implements ActionListener
 {
-    private JButton gbp;
-    private JButton usd; 
-    private JButton sek; 
-    private JButton eur; 
-    private JButton rensNO; 
-    private JButton rensOther; 
-    private JButton rens; 
-    private JButton avslutt; 
-    private JTextField box1; 
-    private JTextField box2;
+    private JButton gbp, usd, sek, eur, rensNO, rensOther, rens, avslutt;
+    private JTextField box1,box2; 
     private JLabel other; 
-    private int sum;
-    private int num;
+    
+    private int sum, num, num2;
+    private int bytt = 1;
     private int dollar = 4; 
     private int pund = 3; 
-    private int euro = 2; 
-    private int svensk = 2;  
-    
+    private int euro = 5; 
+    private int svensk = 2; 
     public Valuta()
     {
         setTitle("Valutakalkulator");
@@ -44,9 +37,8 @@ public class Valuta extends JFrame implements ActionListener
         panelnorth.add(nok);
         panelnorth.add(box1); 
         
-        other = new JLabel("Other"); 
+        other = new JLabel("Annen valuta"); 
         box2 = new JTextField();
-        box2.setEditable(false);
         panelnorth.add(other); 
         panelnorth.add(box2); 
         add(panelnorth, BorderLayout.NORTH); 
@@ -69,9 +61,9 @@ public class Valuta extends JFrame implements ActionListener
         panelcenter.add(sek); 
         add(panelcenter, BorderLayout.CENTER); 
         
-        rensNO = new JButton("Rens NOK"); 
-        rensOther = new JButton("Rens Other"); 
-        rens = new JButton("Rens"); 
+        rensNO = new JButton("Fjern NOK"); 
+        rensOther = new JButton("Fjern Annen Valuta"); 
+        rens = new JButton("Fjern begge"); 
         avslutt = new JButton("Avslutt");
         
         rensNO.addActionListener(this);
@@ -87,7 +79,7 @@ public class Valuta extends JFrame implements ActionListener
         add(panelsouth, BorderLayout.SOUTH);
         
         
-        
+        box2.addActionListener(this);
         
     
         pack();
@@ -95,44 +87,57 @@ public class Valuta extends JFrame implements ActionListener
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
+    //public boolean checkCond() 
+    //{
+      //  return box1.getText().equals("") && box2.getText().equals("");
+    
+    //}
+    
+    public boolean run()
+    {
+       return box1.getText().equals("") && box2.getText().equals(""); 
+    }
+    
     public void actionPerformed(ActionEvent e)
     {
         Object click = e.getSource();
+        String number1 = box1.getText();
+        String number2 = box2.getText();
+        
         if(click == gbp)
         {
-            String number1 = box1.getText(); 
-            int num = Integer.parseInt(number1); 
-            int sum = num * pund; 
-            
-            box2.setText(Integer.toString(sum));
+            num = Integer.parseInt(number1);
+            sum = num * pund; 
+            box2.setText(Integer.toString(sum)); 
             other.setText("GBP");
-        
         }
+       
+       
+       
         else if(click == eur)
         {
-            String number1 = box2.getText();
-            int num = Integer.parseInt(number1);
-            int sum = num * euro; 
+            num = Integer.parseInt(number1);
+            sum = num * euro; 
             box2.setText(Integer.toString(sum)); 
-            other.setText("EUR"); 
-            
+            other.setText("EUR");   
         }
         else if (click == usd)
-        {
-            String number1 = box2.getText(); 
-            int num = Integer.parseInt(number1); 
-            int sum = num * dollar; 
+        {   
+            num = Integer.parseInt(number1); 
+            sum = num * dollar; 
             box2.setText(Integer.toString(sum));
             other.setText("USD"); 
         }
         else if (click == sek)
         {
-            String number1 = box2.getText(); 
-            int num = Integer.parseInt(number1); 
-            int sum = num * svensk; 
+            num = Integer.parseInt(number1); 
+            sum = num * svensk; 
             box2.setText(Integer.toString(sum)); 
-            other.setText("SEK");
+            other.setText("SEK");  
+            
+            
         }
+        
         else if (click == rensNO)
         {
             box1.setText("");
@@ -146,10 +151,11 @@ public class Valuta extends JFrame implements ActionListener
             box1.setText(""); 
             box2.setText(""); 
         }
+     
         else 
         {
             System.exit(0);
         }
-        
     }
+
 }

@@ -2,7 +2,11 @@
 comment0.params=
 comment0.target=Valuta()
 comment1.params=
-comment1.target=boolean\ run()
-comment2.params=e
-comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
-numComments=3
+comment1.target=boolean\ Method1()
+comment2.params=
+comment2.target=boolean\ Method2()
+comment3.params=
+comment3.target=boolean\ Method3()
+comment4.params=e
+comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=5

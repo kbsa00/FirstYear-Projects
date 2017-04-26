@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.*; 
 import java.awt.*;
 import static javax.swing.JOptionPane.*;
+import java.lang.Math; 
 /**
  * Write a description of class Valuta here.
  * 
@@ -14,12 +15,17 @@ public class Valuta extends JFrame implements ActionListener
     private JTextField box1,box2; 
     private JLabel other; 
     
-    private int sum, num, num2;
-    private int bytt = 1;
-    private int dollar = 4; 
-    private int pund = 3; 
-    private int euro = 5; 
-    private int svensk = 2; 
+    private double sum, num, num2;
+ 
+    private double dollar = 0.12; 
+    private double pund = 0.09; 
+    private double euro = 0.11;
+    private double svensk = 1.05;
+    
+    private double nokUSD = 8.62; 
+    private double nokGBP = 11.04;
+    private double nokEUR = 9.25; 
+    private double nokSEK = 0.96;
     public Valuta()
     {
         setTitle("Valutakalkulator");
@@ -28,9 +34,6 @@ public class Valuta extends JFrame implements ActionListener
         JPanel panelnorth = new JPanel(new GridLayout(1,1)); 
         JPanel panelcenter = new JPanel(new GridLayout(2,2)); 
         JPanel panelsouth = new JPanel(new GridLayout(1,3));
-        
-        //panelcenter.setLayout(new GridLayout(3,1,-12,-12));
-        //panelsouth.setLayout(new GridLayout(1,7,-12,-12));
         
         JLabel nok = new JLabel("NOK"); 
         box1 = new JTextField();
@@ -77,66 +80,118 @@ public class Valuta extends JFrame implements ActionListener
         panelsouth.add(rens); 
         panelsouth.add(avslutt); 
         add(panelsouth, BorderLayout.SOUTH);
-        
-        
-        box2.addActionListener(this);
-        
-    
+          
         pack();
         setVisible(true); 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
-    //public boolean checkCond() 
-    //{
-      //  return box1.getText().equals("") && box2.getText().equals("");
-    
-    //}
-    
-    public boolean run()
+   public boolean Method1()
     {
-       return box1.getText().equals("") && box2.getText().equals(""); 
+        return box2.getText().equals("");
     }
     
-    public void actionPerformed(ActionEvent e)
+   public boolean Method2()
     {
-        Object click = e.getSource();
-        String number1 = box1.getText();
-        String number2 = box2.getText();
+        return box1.getText().equals("") && box2.getText().equals(""); 
+    }
+    
+   public boolean Method3()
+    {
+        return box1.getText().equals(num) && box1.getText().equals(num2);
+    
+    }
+    
+    
+    public void actionPerformed(ActionEvent e)
+   {
+     Object click = e.getSource();
         
-        if(click == gbp)
+     if(click == gbp)
         {
-            num = Integer.parseInt(number1);
+            if(Method2())
+            {
+             showMessageDialog(null, "Du må skrive ett beløp!");
+           }
+          
+           if(Method1()){
+            num = Double.parseDouble(box1.getText());
             sum = num * pund; 
-            box2.setText(Integer.toString(sum)); 
+            box2.setText(Double.toString(sum)); 
             other.setText("GBP");
-        }
-       
-       
+           }
+           else{
+            num2 = Double.parseDouble(box2.getText()); 
+            sum = num2 * pund / 100; 
+            box1.setText(Double.toString(sum)); 
+            other.setText("GBP");
+            }
+       }
        
         else if(click == eur)
-        {
-            num = Integer.parseInt(number1);
+        {         
+            if(Method2())
+            {
+             showMessageDialog(null, "Du må skrive ett beløp!");
+           } 
+            
+            if(Method1()){
+            num = Double.parseDouble(box1.getText());
             sum = num * euro; 
-            box2.setText(Integer.toString(sum)); 
+            box2.setText(Double.toString(sum)); 
+            other.setText("EUR");
+           }
+           else
+           {
+            num2 = Double.parseDouble(box2.getText()); 
+            sum = num2 * euro / 100; 
+            box1.setText(Double.toString(sum)); 
             other.setText("EUR");   
+           }
         }
         else if (click == usd)
         {   
-            num = Integer.parseInt(number1); 
-            sum = num * dollar; 
-            box2.setText(Integer.toString(sum));
-            other.setText("USD"); 
-        }
+             if(Method2())
+            {
+             showMessageDialog(null, "Du må skrive ett beløp!");
+            }
+           
+            if(Method1()){
+                num = Double.parseDouble(box1.getText()); 
+                sum = num * dollar; 
+                box2.setText(Double.toString(sum));
+                other.setText("USD"); 
+            } 
+            else
+            {
+                num2 = Double.parseDouble(box2.getText()); 
+                sum = num2 * dollar / 100; 
+                box1.setText(Double.toString(sum)); 
+                other.setText("USD");
+            }
+       }
         else if (click == sek)
         {
-            num = Integer.parseInt(number1); 
-            sum = num * svensk; 
-            box2.setText(Integer.toString(sum)); 
-            other.setText("SEK");  
-            
-            
-        }
+           if(Method2())
+           {
+             showMessageDialog(null, "Du må skrive ett beløp!");
+           }
+           
+            if(Method1()){
+                num = Double.parseDouble(box1.getText()); 
+                sum = num * svensk; 
+                box2.setText(Double.toString(sum)); 
+                other.setText("SEK");  
+            }
+           else
+           {
+               num2 = Double.parseDouble(box2.getText()); 
+               double sum = Math.round(num2 / svensk);
+               
+               box1.setText(Double.toString(sum)); 
+               other.setText("SEK");
+           }
+       }
         
         else if (click == rensNO)
         {
@@ -145,11 +200,13 @@ public class Valuta extends JFrame implements ActionListener
         else if (click == rensOther)
         {
             box2.setText("");
+            other.setText("Annen valuta");
         }
         else if (click == rens)
         {
             box1.setText(""); 
-            box2.setText(""); 
+            box2.setText("");
+            other.setText("Annen valuta");
         }
      
         else 
@@ -157,5 +214,4 @@ public class Valuta extends JFrame implements ActionListener
             System.exit(0);
         }
     }
-
-}
+    }

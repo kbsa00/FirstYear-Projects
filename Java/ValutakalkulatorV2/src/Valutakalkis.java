@@ -166,6 +166,7 @@ public class Valutakalkis extends JFrame {
                             num = Double.parseDouble(north.getNoktxt().getText());
                             sum = num * 0.11;
                             north.getOthertxt().setText(Double.toString(sum));
+                            north.getOther().setText("EUR");
                         } else {
                             num = Double.parseDouble(north.getOthertxt().getText());
                             sum = num * 9.32;

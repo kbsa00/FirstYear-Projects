@@ -91,8 +91,7 @@ public class CurrencyConverter extends JFrame implements ActionListener {
      * GBP, USD, EURO and SEK to the Norwegian currency.
      */
 
-    public boolean methodForCurrency()
-    {
+    public boolean methodForCurrency() {
         return box2.getText().equals("");
     }
 
@@ -107,125 +106,108 @@ public class CurrencyConverter extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String click = e.getActionCommand();
 
-       try{
-        switch (click) {
-            case "GBP":
-                if (!box1.getText().equals("") && !box2.getText().equals(""))
-                {
-                    JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one");
-                }
-                else if (methodForCurrency()) {
-                    num = Double.parseDouble(box1.getText());
-                    sum = num * 0.09;
-                    box2.setText(Double.toString(sum));
-                    other.setText("GBP");
+        try {
+            switch (click) {
+                case "GBP":
+                    if (!box1.getText().equals("") && !box2.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one");
+                    } else if (methodForCurrency()) {
+                        num = Double.parseDouble(box1.getText());
+                        sum = num * 0.09;
+                        box2.setText(Double.toString(sum));
+                        other.setText("GBP");
 
-                } else{
-                    num = Double.parseDouble(box2.getText());
-                    sum = num * 11.04;
-                    box1.setText(Double.toString(sum));
-                    other.setText("GBP");
-                }
-                break;
-            case "EUR":
+                    } else {
+                        num = Double.parseDouble(box2.getText());
+                        sum = num * 11.04;
+                        box1.setText(Double.toString(sum));
+                        other.setText("GBP");
+                    }
+                    break;
+                case "EUR":
 
-                if (!box1.getText().equals("") && !box2.getText().equals(""))
-                {
-                    JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one");
-                }
-                else if (methodForCurrency())
-                {
-                    num = Double.parseDouble(box1.getText());
-                    sum = num * 0.11;
-                    box2.setText(Double.toString(sum));
-                    other.setText("EUR");
-                }
-                else{
-                    num = Double.parseDouble(box2.getText());
-                    sum = num * 9.32;
-                    box2.setText(Double.toString(sum));
-                    other.setText("EUR");
-                }
-                break;
+                    if (!box1.getText().equals("") && !box2.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one");
+                    } else if (methodForCurrency()) {
+                        num = Double.parseDouble(box1.getText());
+                        sum = num * 0.11;
+                        box2.setText(Double.toString(sum));
+                        other.setText("EUR");
+                    } else {
+                        num = Double.parseDouble(box2.getText());
+                        sum = num * 9.32;
+                        box2.setText(Double.toString(sum));
+                        other.setText("EUR");
+                    }
+                    break;
 
-            case "USD":
+                case "USD":
 
-                if (!box1.getText().equals("") && !box2.getText().equals(""))
-                {
-                    JOptionPane.showMessageDialog(null, "You can't write two numbers. Please only write one");
-                }
-                else if(methodForCurrency())
-                {
-                    num = Double.parseDouble(box1.getText());
-                    sum = num * 0.12;
-                    box2.setText(Double.toString(sum));
-                    other.setText("USD");
-                }
-                else{
-                    num = Double.parseDouble(box2.getText());
-                    sum = num * 8.56;
-                    box1.setText(Double.toString(sum));
-                    other.setText("USD");
-                }
+                    if (!box1.getText().equals("") && !box2.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "You can't write two numbers. Please only write one");
+                    } else if (methodForCurrency()) {
+                        num = Double.parseDouble(box1.getText());
+                        sum = num * 0.12;
+                        box2.setText(Double.toString(sum));
+                        other.setText("USD");
+                    } else {
+                        num = Double.parseDouble(box2.getText());
+                        sum = num * 8.56;
+                        box1.setText(Double.toString(sum));
+                        other.setText("USD");
+                    }
 
-                break;
+                    break;
 
-            case "SEK":
+                case "SEK":
 
-                if (!box1.getText().equals("") && !box2.getText().equals(""))
-                {
-                    JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one.");
-                }
-                else if (methodForCurrency())
-                {
-                    num = Double.parseDouble(box1.getText());
-                    sum = num * 1.03;
-                    box2.setText(Double.toString(sum));
-                    other.setText("SEK");
-                }
-                else{
-                    num = Double.parseDouble(box2.getText());
-                    sum = num * 0.97;
-                    box1.setText(Double.toString(sum));
-                    other.setText("SEK");
-                }
-                break;
+                    if (!box1.getText().equals("") && !box2.getText().equals("")) {
+                        JOptionPane.showMessageDialog(null, "You cant write two numbers. Please only write one.");
+                    } else if (methodForCurrency()) {
+                        num = Double.parseDouble(box1.getText());
+                        sum = num * 1.03;
+                        box2.setText(Double.toString(sum));
+                        other.setText("SEK");
+                    } else {
+                        num = Double.parseDouble(box2.getText());
+                        sum = num * 0.97;
+                        box1.setText(Double.toString(sum));
+                        other.setText("SEK");
+                    }
+                    break;
 
-            case "CLEAN BOTH":
-                box1.setText("");
-                box2.setText("");
+                case "CLEAN BOTH":
+                    box1.setText("");
+                    box2.setText("");
 
-                break;
+                    break;
 
-            case "CLEAN NOK":
-                box1.setText("");
+                case "CLEAN NOK":
+                    box1.setText("");
 
-                break;
+                    break;
 
 
-            case "EXIT":
-                int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the program?");
+                case "EXIT":
+                    int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the program?");
 
-                if (choice == YES_OPTION)
-                {
-                    System.exit(0);
-                }
+                    if (choice == YES_OPTION) {
+                        System.exit(0);
+                    }
 
-                break;
+                    break;
 
-            case "CLEAN OTHER":
-                box2.setText("");
+                case "CLEAN OTHER":
+                    box2.setText("");
 
-             break;
+                    break;
 
-        }
-    }catch (Exception ex)
-       {
-            if (box1.getText().equals("") && box2.getText().equals(""))
-            {
+            }
+        } catch (Exception ex) {
+            if (box1.getText().equals("") && box2.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "The boxes are empty, Please write a number.");
             }
-       }
+        }
     }
 
 
